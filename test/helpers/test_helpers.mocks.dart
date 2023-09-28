@@ -8,6 +8,8 @@ import 'dart:ui' as _i5;
 
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:observable_flutter/models/book.dart' as _i7;
+import 'package:observable_flutter/services/api_service.dart' as _i6;
 import 'package:stacked_services/stacked_services.dart' as _i2;
 
 // ignore_for_file: type=lint
@@ -650,4 +652,22 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [ApiService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockApiService extends _i1.Mock implements _i6.ApiService {
+  @override
+  _i4.Future<List<_i7.Book>> getBooks({String? genreType = r'computers'}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getBooks,
+          [],
+          {#genreType: genreType},
+        ),
+        returnValue: _i4.Future<List<_i7.Book>>.value(<_i7.Book>[]),
+        returnValueForMissingStub:
+            _i4.Future<List<_i7.Book>>.value(<_i7.Book>[]),
+      ) as _i4.Future<List<_i7.Book>>);
 }
